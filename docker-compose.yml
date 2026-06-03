@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: peoplecore-app
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - peoplecore-net
+
+  mysql:
+    image: mysql:8.0
+    container_name: peoplecore-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: K98232009k
+      MYSQL_DATABASE: peoplecore
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - peoplecore-net
+
+volumes:
+  mysql-data:
+
+networks:
+  peoplecore-net:
+    driver: bridge

@@ -1,0 +1,74 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Cobertura de testes
+coverage/
+.nyc_output/
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Cloud9
+.c9/
+
+# Sublime
+*.sublime-workspace
+
+# Arquivos temporários
+.temp/
+.tmp/
+*.tmp
+
+# Runtime
+pids/
+*.pid
+*.pid.lock
+*.seed
+
+# Relatórios Node
+report.*.json
+
+# Docker local
+docker-compose.override.yml
+
+# Arquivos de banco local
+*.sqlite
+*.db
+
+# NestJS
+nest-cli.json
+
+# Cache
+.cache/
